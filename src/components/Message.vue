@@ -12,8 +12,11 @@
   }
 </script>
 
-<style>
-  h1 {
-    color: #157CBD;
+<style lang="scss">
+  $font: 'Dosis', sans-serif;
+  $mainColor: #c3c3c3;
+  body {
+    font-family: $font;
+    color: $mainColor;
   }
 </style>
