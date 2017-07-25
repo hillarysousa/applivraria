@@ -1,8 +1,8 @@
 <template>
   <div class="header">
-    <button class="arrow"><icon name="chevron-left" scale="1.5"></icon></button>
+    <router-link to="/" exact tag="button" class="arrow"><icon name="chevron-left" scale="1.5"></icon></router-link>
     <h1>Livraria Flip</h1>
-    <button class="cart"><icon name="shopping-cart" scale="1.5"></icon></button>
+    <router-link to="carrinho" tag="button" class="cart"><icon name="shopping-cart" scale="1.5"></icon></router-link>
   </div>
 </template>
 
@@ -16,15 +16,12 @@
 </script>
 
 <style lang="scss">
-  @mixin whiteColor() {
-    color: #FFF;
-  }
   .header {
     width: 100%;
     clear: both;
     line-height:1.1;
     text-align: center;
-    background: #2c9201;
+    background: $mainColor;
     padding: 10px 0;
       h1 {
         @include whiteColor();
@@ -53,5 +50,9 @@
     @include whiteColor();
     margin-right: 5%;
     float: right;
+  }
+
+  .router-link-active {
+    visibility: hidden;
   }
 </style>

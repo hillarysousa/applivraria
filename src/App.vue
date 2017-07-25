@@ -2,9 +2,8 @@
   <div id="app">
     <topo></topo>
     <corpo>
+      <router-view></router-view>
     </corpo>
-
-      <listaProdutos></listaProdutos>
   </div>
 </template>
 
@@ -12,23 +11,22 @@
 import topo from './components/topo.vue'
 import corpo from './components/corpo.vue'
 import listaProdutos from './components/listaProdutos.vue'
+import carrinho from './components/carrinho.vue'
 
 export default {
   name: 'app',
-  components: {topo, corpo, listaProdutos}
+  components: {topo, corpo, listaProdutos, carrinho}
 }
 </script>
 
 <style lang="scss">
-$titillium: "Titillium Web", sans-serif;
-$lato: "Lato", sans-serif;
 body {
   height:100vh;
   width:100vw;
   margin:0;
 }
 
-h1 {
+h1, h2, h3 {
   font-family: $titillium;
 }
 

@@ -42,10 +42,43 @@ module.exports = {
         options: {
           vueLoaderConfig,
           loaders: {
-            scss: 'vue-style-loader!css-loader!sass-loader', // <style lang="scss">
-            sass: 'vue-style-loader!css-loader!sass-loader?indentedSyntax' // <style lang="sass">
+            sass: [
+              'vue-style-loader',
+              'css-loader',
+              'sass-loader?indentedSyntax=1',
+              {
+                loader: 'sass-resources-loader',
+                options: {
+                  resources: './src/assets/resources.scss'
+                }
+              }
+            ],
+            scss: [
+              'vue-style-loader',
+              'css-loader',
+              'sass-loader',
+              {
+                loader: 'sass-resources-loader',
+                options: {
+                  resources: './src/assets/resources.scss'
+                }
+              }
+            ]
           }
         }
+      },
+      {
+        test: /\.scss$/,
+        use: [
+          'style-loader',
+          'sass-loader',
+          {
+            loader: 'sass-resources-loader',
+            options: {
+              resources: './src/assets/resources.scss'
+            }
+          }
+        ]
       },
       {
         test: /\.js$/,

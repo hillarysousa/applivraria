@@ -6,6 +6,8 @@ import router from './router'
 import store from './store'
 import 'vue-awesome/icons/chevron-left'
 import 'vue-awesome/icons/shopping-cart'
+import 'vue-awesome/icons/cart-plus'
+import 'vue-awesome/icons/times-rectangle'
 
 Vue.config.productionTip = false
 
