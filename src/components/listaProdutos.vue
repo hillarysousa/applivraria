@@ -1,17 +1,17 @@
 <template>
   <div>
-    <div class="produto"  v-for="livro in livros">
-      <h3>{{ livro.titulo }}</h3>
+    <div class="produto"  v-for="l in livros">
+      <h3>{{ l.titulo }}</h3>
       <div class="img-produto">
-        <img :src="livro.capa">
+        <img :src="l.capa">
       </div>
       <div class="info-produto">
-        <p class="autor">Autor(a): {{ livro.autor }}</p>
-        <p class="editora">Editora: {{ livro.editora }}</p>
-        <p class="ano-lancamento">Ano de lançamento: {{ livro.ano_lanc }}</p>
-        <h2>R$ {{ livro.preco }}</h2>
+        <p class="autor">Autor(a): {{ l.autor }}</p>
+        <p class="editora">Editora: {{ l.editora }}</p>
+        <p class="ano-lancamento">Ano de lançamento: {{ l.ano_lanc }}</p>
+        <h2>R$ {{ formatoValor(l.preco) }}</h2>
       </div>
-      <button class="btn-produto"><icon name="cart-plus" scale="1.3"></icon> Adicionar ao carrinho</button>
+      <button class="btn-produto" @click="addProduto(l)"><icon name="cart-plus" scale="1.3"></icon> Adicionar ao carrinho</button>
     </div>
   </div>
 </template>
@@ -22,58 +22,18 @@
     components: {
       Icon
     },
-    data () {
-      return {
-        livros: [
-          {
-            titulo: 'Harry Potter e a Pedra Filosofal',
-            autor: 'J.K. Rowling',
-            editora: 'Rocco',
-            ano_lanc: '2000',
-            preco: '23,10',
-            capa: require('../assets/img/harrypotter-1.jpg')
-          },
-          {
-            titulo: 'Harry Potter e a Câmara Secreta',
-            autor: 'J.K. Rowling',
-            editora: 'Rocco',
-            ano_lanc: '2000',
-            preco: '23,10',
-            capa: require('../assets/img/harrypotter-2.jpg')
-          },
-          {
-            titulo: 'Harry Potter e o Prisioneiro de Azkaban',
-            autor: 'J.K. Rowling',
-            editora: 'Rocco',
-            ano_lanc: '2000',
-            preco: '25,90',
-            capa: require('../assets/img/harrypotter-3.jpg')
-          },
-          {
-            titulo: 'Harry Potter e o Cálice de Fogo',
-            autor: 'J.K. Rowling',
-            editora: 'Rocco',
-            ano_lanc: '2001',
-            preco: '34,90',
-            capa: require('../assets/img/harrypotter-4.jpg')
-          },
-          {
-            titulo: 'Harry Potter e a Ordem da Fênix',
-            autor: 'J.K. Rowling',
-            editora: 'Rocco',
-            ano_lanc: '2003',
-            preco: '41,90',
-            capa: require('../assets/img/harrypotter-5.jpg')
-          },
-          {
-            titulo: 'Harry Potter e o Enigma do Príncipe',
-            autor: 'J.K. Rowling',
-            editora: 'Rocco',
-            ano_lanc: '2005',
-            preco: '32,90',
-            capa: require('../assets/img/harrypotter-6.jpg')
-          }
-        ]
+    computed: {
+      livros () {
+        return this.$store.getters.listaLivros
+      }
+    },
+    methods: {
+      addProduto (livro) {
+        this.$store.dispatch('addProduto', livro)
+      },
+      formatoValor (valor) {
+        let val = (valor / 1).toFixed(2).replace('.', ',')
+        return val.toString().replace(/\B(?=(\d{3})+(?!\d))/g, '.')
       }
     }
   }
@@ -85,6 +45,13 @@
     margin: 20px 1% 0;
     border: 1px solid #ccc;
     float: left;
+    @media #{$mq-xs} {
+      width: 96%;
+      margin: 20px 2% 10px;
+    }
+    @media #{$mq-sm} {
+      width: 47%;
+    }
     h3 {
       font-size: 15px;
       color: #333;

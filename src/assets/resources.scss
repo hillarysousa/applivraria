@@ -1,6 +1,10 @@
 $titillium: "Titillium Web", sans-serif;
 $lato: "Lato", sans-serif;
 $mainColor: #2c9201;
+$mq-xs: "screen and (max-width: 320px)";
+$mq-sm: "screen and (max-width: 768px)";
+$mq-md: "screen and (max-width: 992px)";
+$mq-lg: "screen and (max-width: 1200px)";
 
 @mixin whiteColor() {
   color: #FFF;

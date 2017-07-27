@@ -3,11 +3,14 @@
 import Vue from 'vue'
 import App from './App'
 import router from './router'
-import store from './store'
+import store from './vuex/store.js'
 import 'vue-awesome/icons/chevron-left'
 import 'vue-awesome/icons/shopping-cart'
 import 'vue-awesome/icons/cart-plus'
 import 'vue-awesome/icons/times-rectangle'
+import 'vue-awesome/icons/times'
+import 'vue-awesome/icons/minus-square'
+import 'vue-awesome/icons/plus-square'
 
 Vue.config.productionTip = false
 
