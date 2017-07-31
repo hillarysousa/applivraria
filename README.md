@@ -7,10 +7,6 @@ Aplicativo de livraria feito para o desafio da Stone.
 
 * [Node (6.11.1)](https://nodejs.org/en/)
 * [NPM](https://www.npmjs.com/)
-* [Vue (2.3.3 ou superior)](https://vuejs.org/)
-* [Vue Router (2.6.0 ou superior)](https://router.vuejs.org/en/)
-* [Vuex (2.3.1 ou superior)](https://vuex.vuejs.org/en/)
-* [Vue Loader (12.1.0 ou superior)](https://vue-loader.vuejs.org/en/)
 
 **Passos para a instalação:**
 
